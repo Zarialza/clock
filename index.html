@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date, Time, and Day Display</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+        height: 1vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url("17014743.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Da Time is</h1>
+    <div id="time" style="font-size: 100px"></div>
+    <div id="date" style="font-size: 20px; margin-top: 20px"></div>
+
+    <script>
+      function updateDateTime() {
+        var currentDate = new Date();
+
+        var dateElement = document.getElementById("date");
+        dateElement.textContent = "Date: " + currentDate.toDateString();
+
+        var timeElement = document.getElementById("time");
+        timeElement.textContent = currentDate.toLocaleTimeString();
+
+        var dayElement = document.getElementById("day");
+        var daysOfWeek = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        dayElement.textContent = "Day: " + daysOfWeek[currentDate.getDay()];
+      }
+
+      // Update the date, time, and day every second
+      setInterval(updateDateTime, 1000);
+
+      // Initial update
+      updateDateTime();
+    </script>
+  </body>
+</html>
